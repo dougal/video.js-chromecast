@@ -5,7 +5,7 @@
  * @file videojs-chromecast.js
  **/
 import videojs from 'video.js';
-# import chromecastButton from './component/control-bar/chromecast-button';
+// import chromecastButton from './component/control-bar/chromecast-button';
 import chromecastTech from './tech/chromecast';
 
 let Component = videojs.getComponent('Component');
