@@ -377,6 +377,29 @@ var Chromecast = (function (_Tech) {
             this.resetSrc_(Function.prototype);
             _get(Object.getPrototypeOf(Chromecast.prototype), 'dispose', this).call(this, this);
         }
+    }, {
+        key: 'readyState',
+        value: function readyState() {
+            // http://docs.videojs.com/docs/api/player.html#MethodsnetworkState
+            // Pretend all is good because errors handled on playback device.
+            // HAVE_ENOUGH_DATA.
+            return 4;
+        }
+    }, {
+        key: 'networkState',
+        value: function networkState() {
+            // http://docs.videojs.com/docs/api/player.html#MethodsreadyState
+            // Pretend all is good because errors handled on playback device.
+            // NETWORK_IDLE.
+            return 1;
+        }
+    }, {
+        key: 'preload',
+        value: function preload(val) {
+            // http://docs.videojs.com/docs/api/player.html#Methodspreload
+            // Pretend preload is already set, or return passed value.
+            return !!val ? val : true;
+        }
     }]);
 
     return Chromecast;

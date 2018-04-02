@@ -321,6 +321,26 @@ class Chromecast extends Tech {
         super.dispose(this);
     }
 
+    readyState () {
+        // http://docs.videojs.com/docs/api/player.html#MethodsnetworkState
+        // Pretend all is good because errors handled on playback device.
+        // HAVE_ENOUGH_DATA.
+        return 4;
+    }
+
+    networkState () {
+        // http://docs.videojs.com/docs/api/player.html#MethodsreadyState
+        // Pretend all is good because errors handled on playback device.
+        // NETWORK_IDLE.
+        return 1;
+    }
+
+    preload (val) {
+        // http://docs.videojs.com/docs/api/player.html#Methodspreload
+        // Pretend preload is already set, or return passed value.
+        return !!val ? val : true;
+    }
+
 }
 
 Chromecast.prototype.paused_ = false;
